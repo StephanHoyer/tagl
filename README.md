@@ -1,5 +1,7 @@
 # tagl
 
+![](http://img.badgesize.io/StephanHoyer/tagl/master/index.js.svg?compression=gzip)
+
 universal hyperscript helper for fancy syntax
 
 ## why
