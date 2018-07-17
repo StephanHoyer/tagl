@@ -1,5 +1,7 @@
 # tagl
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/StephanHoyer/tagl.svg)](https://greenkeeper.io/)
+
 ![](http://img.badgesize.io/StephanHoyer/tagl/master/index.js.svg?compression=gzip)
 
 universal hyperscript helper for fancy syntax
