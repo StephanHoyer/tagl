@@ -48,6 +48,7 @@ module.exports = tagl(function(tagName, classes, props, children) {
     {},
     props,
     { className: [...classes, props.className || ''].join(' ') }
+    children
   ))
 })
 ```
