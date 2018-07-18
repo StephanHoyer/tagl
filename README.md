@@ -35,10 +35,20 @@ Well thats possible with _tagl_
 ```js
 // h.js
 
-// init tagl with you hyperscript lib, e. g. mithril.js
+// init tagl with your hyperscript lib, e. g. mithril.js
 const m = require('mithril')
 module.exports = tagl(function(tagName, classes, ...args) {
   return m([tagName, ...classes].join('.'), ...args)
+})
+
+// or react (untested)
+const React = require('react')
+module.exports = tagl(function(tagName, classes, props, children) {
+  return React.createElement(tagName, Object.assign(
+    {},
+    props,
+    { className: [...classes, props.className || ''].join(' ') }
+  ))
 })
 ```
 
