@@ -4,9 +4,6 @@ module.exports = function(h) {
   return new Proxy(
     {},
     {
-      set: function(components, componentName, component) {
-        components[componentName] = component
-      },
       get: function(components, tagName) {
         tagName = components[tagName] || tagName
         return new Proxy(noop, {
