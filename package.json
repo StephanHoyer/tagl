@@ -4,7 +4,7 @@
   "description": "universal hyperscript helper for fancy syntax",
   "main": "index.js",
   "scripts": {
-    "test": "ospec test.js"
+    "test": "node_modules/ospec/bin/ospec test.js"
   },
   "repository": {
     "type": "git",
