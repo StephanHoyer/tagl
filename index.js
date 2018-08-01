@@ -3,10 +3,8 @@ function noop() {}
 module.exports = function(h) {
   function createProxy(tagName) {
     return new Proxy(noop, {
-      apply(_, __, args) {
-        return h(tagName, [], ...args)
-      },
-      get(_, className) {
+      apply: (_, __, args) => h(tagName, [], ...args),
+      get: (_, className) => {
         const classNames = [className]
         const proxy = new Proxy(noop, {
           get(_, className) {
@@ -22,8 +20,7 @@ module.exports = function(h) {
     })
   }
 
-  return new Proxy(noop, {
-    apply: (_, __, [component]) => createProxy(component),
+  return new Proxy(component => createProxy(component), {
     get: (components, tagName) => createProxy(components[tagName] || tagName),
   })
 }
