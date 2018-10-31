@@ -1,6 +1,6 @@
 function noop() {}
 
-module.exports = function(h) {
+function tagl(h) {
   function createProxy(tagName) {
     return new Proxy(noop, {
       apply: (_, __, args) => h(tagName, [], ...args),
@@ -24,3 +24,5 @@ module.exports = function(h) {
     get: (components, tagName) => createProxy(components[tagName] || tagName),
   })
 }
+
+export default tagl
