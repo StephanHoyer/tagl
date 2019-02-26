@@ -1,28 +1,11 @@
-function noop() {}
-
-function tagl(h) {
-  function createProxy(tagName) {
-    return new Proxy(noop, {
-      apply: (_, __, args) => h(tagName, [], ...args),
-      get: (_, className) => {
-        const classNames = [className]
-        const proxy = new Proxy(noop, {
-          get(_, className) {
-            classNames.push(className)
-            return proxy
-          },
-          apply(_, ___, args) {
-            return h(tagName, classNames, ...args)
-          },
-        })
-        return proxy
-      },
+export default function makeTag(h) {
+  function create(tag, ...classes) {
+    return new Proxy((...args) => h(tag, classes, ...args), {
+      get: (_, key) => create(tag, ...classes, key),
     })
   }
 
-  return new Proxy(component => createProxy(component), {
-    get: (components, tagName) => createProxy(components[tagName] || tagName),
+  return new Proxy(tag => create(tag), {
+    get: (comps, tag) => create(comps[tag] || tag),
   })
 }
-
-export default tagl

@@ -1,5 +1,5 @@
 const o = require('ospec')
-const tagl = require('.')
+const tagl = require('./tagl')
 
 o.spec('basic usage', () => {
   o('without classes', function(done) {
