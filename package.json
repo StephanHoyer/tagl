@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/StephanHoyer/tagl#readme",
   "devDependencies": {
-    "ospec": "3.1.0",
+    "ospec": "4.2.0",
     "rollup": "4.8.0",
     "rollup-plugin-buble": "0.19.4",
     "rollup-plugin-filesize": "6.1.0",
